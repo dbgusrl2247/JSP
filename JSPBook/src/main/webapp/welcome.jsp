@@ -2,16 +2,16 @@
 <%@ page import="java.util.Date" %>
 <html>
 <head>
-    <link href="	https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
     <title>Welcome</title>
 </head>
 <body>
 <div class="container py-4">
     <%@ include file="menu.jsp" %>
     <%! String greeting = "도서 쇼핑몰에 오신 것을 환영합니다";
-    String tagline="Welcome to Web Market!"; %>
+    String tagline="BookMarket"; %>
 
-        <div class="p-5 mb-4 bg-tertiary rounded-3">
+        <div class="p-5 mb-4 bg-body-tertiary rounded-3">
             <div class="container">
                 <h1 class="display-5 fw-bold"><%= greeting %></h1>
                 <p class="fs-4"><%= tagline %></p>
@@ -23,6 +23,7 @@
                 <div class="h-100 p-5">
                     <h3><%= tagline %></h3>
                     <%
+                    	response.setIntHeader("Refresh", 5);
                     	Date day=new java.util.Date();
                     	String am_pm;
                     	int hour=day.getHours();
