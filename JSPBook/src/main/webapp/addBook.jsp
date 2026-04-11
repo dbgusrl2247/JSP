@@ -19,7 +19,7 @@
 	</div>
 	
 	<div class="row align-items-md-stretch">
-		<form name="newBook" action="/.processAddBook.jsp" method="post">
+		<form name="newBook" action="./processAddBook.jsp" method="post">
 			<div class="mb-3 row">
 				<label class="col-sm-2">도서코드</label>
 				<div class="col-sm-3">
@@ -72,17 +72,26 @@
 			<div class="mb-3 row">
 				<label class="col-sm-2">재고수</label>
 				<div class="col-sm-3">
-					<input type="text" name="unitInStock" class="form-control">
+					<input type="text" name="unitsInStock" class="form-control">
 				</div>
 			</div>
 			<div class="mb-3 row">
-				<label class="col-sm-2">상태</label>
-				<div class="col-sm-5">
-					<input type="radio" name="condition" class="form-control"> 신규도서
-					<input type="radio" name="condition" class="form-control"> 중고도서
-					<input type="radio" name="condition" class="form-control"> E-Book
-				</div>
-			</div>
+    			<label class="col-sm-2">상태</label>
+    				<div class="col-sm-5">
+        				<div class="form-check form-check-inline">
+            				<input class="form-check-input" type="radio" name="condition" id="condition1" value="New">
+            				<label class="form-check-label" for="condition1">신규도서</label>
+        				</div>
+        				<div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="condition" id="condition2" value="Old">
+            <label class="form-check-label" for="condition2">중고도서</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="condition" id="condition3" value="EBook">
+            <label class="form-check-label" for="condition3">E-Book</label>
+        </div>
+    </div>
+</div>
 			<div class="mb-3 row">
 				<input type="submit" class="btn btn-primary" value="등록">
 			</div>

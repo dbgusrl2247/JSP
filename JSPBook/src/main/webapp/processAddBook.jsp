@@ -2,6 +2,8 @@
 <%@ page import="dto.Book" %>
 <%@ page import="dao.BookRepository" %>
 
+<jsp:useBean id="BookDAO" class="dao.BookRepository" scope="session" />
+
 <%
 	request.setCharacterEncoding("UTF-8");
 	
@@ -16,21 +18,19 @@
 	String unitsInStock=request.getParameter("unitsInStock");
 	String condition=request.getParameter("condition");
 	
-	int price;
+	int price = 0;
+	if(unitPrice == null || unitPrice.isEmpty()) {
+		price = 0;
+	} else {
+		price = Integer.valueOf(unitPrice);
+	}
 	
-	if(unitPrice.isEmpty())
-		price=0;
-	else
-		price=Integer.valueOf(unitPrice);
-	
-	long stock;
-	
-	if(unitsInStock.isEmpty())
-		stock=0;
-	else
-		stock=Long.valueOf(unitsInStock);
-	
-	BookRepository dao=BookRepository.getInstance();
+	long stock = 0;
+	if(unitsInStock == null || unitsInStock.isEmpty()) {
+		stock = 0;
+	} else {
+		stock = Long.valueOf(unitsInStock);
+	}
 	
 	Book newBook=new Book();
 	newBook.setBookId(bookId);
@@ -44,18 +44,7 @@
 	newBook.setUnitsInStock(stock);
 	newBook.setCondition(condition);
 	
-	dao.addBook(newBook);
+	BookDAO.addBook(newBook);
 	
 	response.sendRedirect("books.jsp");
 %>
-
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
-
-</body>
-</html>

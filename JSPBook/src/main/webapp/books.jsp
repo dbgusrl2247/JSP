@@ -3,12 +3,14 @@
 <%@ page contentType="text/html; charset=utf-8" %>
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="dto.Book" %>
+<%@ page import="dao.BookRepository" %>
 <jsp:useBean id="BookDAO" class="dao.BookRepository" scope="session" />
 <html>
 <head>
-
-<meta charset="UTF-8">
-<title>도서 목록</title>
+    <meta charset="UTF-8">
+    <title>도서 목록</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
 <div class="container py-4">
@@ -21,6 +23,7 @@
 		</div>
 	</div>
 	<%
+		BookRepository dao = BookRepository.getInstance();
 		ArrayList<Book> listOfBooks = BookDAO.getAllBooks();
 	%>
 	
