@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="./resources/css/bootstrap.min.css" />
 <meta charset="UTF-8">
 <title>도서 등록</title>
 </head>
@@ -19,7 +19,7 @@
 	</div>
 	
 	<div class="row align-items-md-stretch">
-		<form name="newBook" action="./processAddBook.jsp" method="post">
+		<form name="newBook" action="./processAddBook.jsp" class="form-horizontal" method="post" enctype="multipart/form-data">
 			<div class="mb-3 row">
 				<label class="col-sm-2">도서코드</label>
 				<div class="col-sm-3">
