@@ -2,7 +2,9 @@
 <%@ page import="dto.Book" %>
 <%@ page import="dao.BookRepository" %>
 <%@ page import="com.oreilly.servlet.*" %>
-<%@ page import="com.oreilly.servlet.multipart"%>
+<%@ page import="java.util.Enumeration" %>
+<%@ page import="com.oreilly.servlet.MultipartRequest" %>
+<%@ page import="com.oreilly.servlet.multipart.DefaultFileRenamePolicy" %>
 
 <jsp:useBean id="BookDAO" class="dao.BookRepository" scope="session" />
 
@@ -10,7 +12,7 @@
 	request.setCharacterEncoding("UTF-8");
 
 	String filename="";
-	String realFolder="C:\\Users\\user\\eclipse-workspace\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp0\\wtpwebapps\\JSPBook\\resources\\images";
+	String realFolder="C:\\Users\\dbgus\\git\\JSP\\JSPBook\\src\\main\\webapp\\resources\\images";
 	int maxSize=5 * 1024 * 1024;
 	String encType="utf-8";
 
